@@ -1,0 +1,259 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Rajdhani:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+
+    /* Crypto Collie Capital Flow - Dark Institutional Theme */
+    /* All values in OKLCH: L C H */
+
+    /* Backgrounds */
+    --background: 0.09 0.015 255;
+    --foreground: 0.92 0.01 255;
+
+    /* Cards / Surfaces */
+    --card: 0.12 0.018 255;
+    --card-foreground: 0.92 0.01 255;
+
+    /* Popover */
+    --popover: 0.13 0.02 255;
+    --popover-foreground: 0.92 0.01 255;
+
+    /* Primary - Gold/Amber */
+    --primary: 0.78 0.17 72;
+    --primary-foreground: 0.09 0.015 255;
+
+    /* Secondary - Electric Blue */
+    --secondary: 0.5 0.2 260;
+    --secondary-foreground: 0.92 0.01 255;
+
+    /* Muted */
+    --muted: 0.16 0.02 255;
+    --muted-foreground: 0.5 0.04 255;
+
+    /* Accent */
+    --accent: 0.18 0.025 255;
+    --accent-foreground: 0.92 0.01 255;
+
+    /* Destructive/Danger */
+    --destructive: 0.58 0.23 18;
+    --destructive-foreground: 0.92 0.01 255;
+
+    /* Border */
+    --border: 0.22 0.03 255;
+    --input: 0.16 0.025 255;
+    --ring: 0.78 0.17 72;
+
+    /* Charts */
+    --chart-1: 0.78 0.17 72;
+    --chart-2: 0.55 0.22 260;
+    --chart-3: 0.68 0.2 148;
+    --chart-4: 0.65 0.22 18;
+    --chart-5: 0.7 0.18 290;
+
+    /* Sidebar */
+    --sidebar: 0.10 0.018 255;
+    --sidebar-foreground: 0.92 0.01 255;
+    --sidebar-primary: 0.78 0.17 72;
+    --sidebar-primary-foreground: 0.09 0.015 255;
+    --sidebar-accent: 0.16 0.025 255;
+    --sidebar-accent-foreground: 0.92 0.01 255;
+    --sidebar-border: 0.18 0.025 255;
+    --sidebar-ring: 0.78 0.17 72;
+
+    /* App-specific tokens */
+    --color-gold: oklch(0.78 0.17 72);
+    --color-blue: oklch(0.55 0.22 260);
+    --color-success: oklch(0.68 0.2 148);
+    --color-danger: oklch(0.58 0.23 18);
+    --color-surface-1: oklch(0.09 0.015 255);
+    --color-surface-2: oklch(0.12 0.018 255);
+    --color-surface-3: oklch(0.16 0.02 255);
+    --color-border: oklch(0.22 0.03 255);
+    --color-text-primary: oklch(0.92 0.01 255);
+    --color-text-muted: oklch(0.5 0.04 255);
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Space Grotesk', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+  ::-webkit-scrollbar-track {
+    background: oklch(0.10 0.018 255);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: oklch(0.22 0.03 255);
+    border-radius: 2px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: oklch(0.78 0.17 72 / 0.5);
+  }
+}
+
+@layer utilities {
+  /* Typography */
+  .font-display {
+    font-family: 'Rajdhani', sans-serif;
+  }
+  .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  /* Gold glow effect */
+  .glow-gold {
+    box-shadow: 0 0 20px oklch(0.78 0.17 72 / 0.3), 0 0 40px oklch(0.78 0.17 72 / 0.1);
+  }
+  .glow-gold-text {
+    text-shadow: 0 0 20px oklch(0.78 0.17 72 / 0.8);
+  }
+  .glow-blue {
+    box-shadow: 0 0 20px oklch(0.55 0.22 260 / 0.3), 0 0 40px oklch(0.55 0.22 260 / 0.1);
+  }
+  .glow-success {
+    box-shadow: 0 0 20px oklch(0.68 0.2 148 / 0.3);
+  }
+  .glow-danger {
+    box-shadow: 0 0 20px oklch(0.58 0.23 18 / 0.3);
+  }
+
+  /* Gradient text */
+  .text-gradient-gold {
+    background: linear-gradient(135deg, oklch(0.78 0.17 72), oklch(0.88 0.14 88));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Card with subtle border glow */
+  .card-glow {
+    background: oklch(0.12 0.018 255);
+    border: 1px solid oklch(0.22 0.03 255);
+    box-shadow: 0 2px 12px oklch(0 0 0 / 0.3), 0 1px 3px oklch(0 0 0 / 0.4);
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  }
+  .card-glow:hover {
+    border-color: oklch(0.78 0.17 72 / 0.25);
+    box-shadow: 0 4px 20px oklch(0 0 0 / 0.4), 0 0 0 1px oklch(0.78 0.17 72 / 0.08);
+  }
+
+  /* Section heading with gold left accent */
+  .section-heading {
+    position: relative;
+    padding-left: 0.875rem;
+  }
+  .section-heading::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 2px;
+    height: 70%;
+    background: oklch(0.78 0.17 72);
+    border-radius: 2px;
+    box-shadow: 0 0 8px oklch(0.78 0.17 72 / 0.6);
+  }
+
+  /* Stat label micro-cap */
+  .stat-label {
+    font-size: 0.625rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: oklch(0.5 0.04 255);
+  }
+
+  /* Grid noise overlay for atmosphere */
+  .bg-noise {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 128px 128px;
+  }
+
+  /* Pulse animation for live indicator */
+  .live-indicator::before {
+    content: '';
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: oklch(0.68 0.2 148);
+    margin-right: 6px;
+    animation: live-pulse 2s infinite;
+  }
+
+  /* Setup complete badge animation */
+  @keyframes setup-complete-pulse {
+    0%, 100% { box-shadow: 0 0 10px oklch(0.78 0.17 72 / 0.5), 0 0 20px oklch(0.78 0.17 72 / 0.3); }
+    50% { box-shadow: 0 0 20px oklch(0.78 0.17 72 / 0.8), 0 0 40px oklch(0.78 0.17 72 / 0.5), 0 0 60px oklch(0.78 0.17 72 / 0.2); }
+  }
+  .setup-complete-glow {
+    animation: setup-complete-pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes live-pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.8); }
+  }
+
+  @keyframes flow-arrow {
+    0% { stroke-dashoffset: 100; opacity: 0.3; }
+    50% { opacity: 1; }
+    100% { stroke-dashoffset: 0; opacity: 0.3; }
+  }
+
+  @keyframes fade-in-up {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+
+  .animate-fade-in-up {
+    animation: fade-in-up 0.4s ease-out forwards;
+  }
+  .animate-fade-in {
+    animation: fade-in 0.3s ease-out forwards;
+  }
+  .animate-shimmer {
+    background: linear-gradient(90deg, oklch(0.16 0.02 255) 25%, oklch(0.20 0.025 255) 50%, oklch(0.16 0.02 255) 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+  }
+  .animate-flow {
+    stroke-dasharray: 12 6;
+    animation: flow-arrow 2s linear infinite;
+  }
+
+  /* Staggered animation delays */
+  .stagger-1 { animation-delay: 0.05s; }
+  .stagger-2 { animation-delay: 0.10s; }
+  .stagger-3 { animation-delay: 0.15s; }
+  .stagger-4 { animation-delay: 0.20s; }
+  .stagger-5 { animation-delay: 0.25s; }
+  .stagger-6 { animation-delay: 0.30s; }
+}
